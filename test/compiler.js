@@ -1,11 +1,13 @@
 import path from 'path';
 import webpack from 'webpack';
 import { createFsFromVolume, Volume } from 'memfs';
+const WebpackSpriteSvgLoaderPlugin = require('../src/plugin');
 
-export default (fixture, options = {}) => {
+const volume = new Volume();
+const compiler = (entry, loaderOptions = {}) => {
   const compiler = webpack({
     context: __dirname,
-    entry: `./${fixture}`,
+    entry: entry,
     output: {
       path: path.resolve(__dirname),
       filename: 'bundle.js',
@@ -13,17 +15,20 @@ export default (fixture, options = {}) => {
     module: {
       rules: [
         {
-          test: /\.txt$/,
+          test: /\.svg$/,
           use: {
             loader: path.resolve(__dirname, '../src/loader.js'),
-            options,
+            options: loaderOptions,
           },
         },
       ],
     },
+    plugins: [
+      new WebpackSpriteSvgLoaderPlugin()
+    ]
   });
 
-  compiler.outputFileSystem = createFsFromVolume(new Volume());
+  compiler.outputFileSystem = createFsFromVolume(volume);
   compiler.outputFileSystem.join = path.join.bind(path);
 
   return new Promise((resolve, reject) => {
@@ -34,4 +39,9 @@ export default (fixture, options = {}) => {
       resolve(stats);
     });
   });
+};
+
+module.exports = {
+  compiler,
+  volume,
 };

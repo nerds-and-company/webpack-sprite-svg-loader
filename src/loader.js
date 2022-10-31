@@ -1,7 +1,20 @@
-export default function loader(source) {
-  const options = this.getOptions();
+const loaderUtils = require('loader-utils');
+const WebpackSpriteSvgLoaderState = require('./state');
 
-  source = source.replace(/\[name\]/g, options.name);
+function loader(svgContent) {
+  // Webpack caching disabled for now
+  this.cacheable(false);
 
-  return `export default ${JSON.stringify(source)}`;
+  const options = {
+    symbolId: '[name]',
+    spriteFilename: 'sprite.svg',
+    ...this.getOptions(),
+  }
+
+  const symbolId = loaderUtils.interpolateName(this, options.symbolId);
+  WebpackSpriteSvgLoaderState.instance.addSvg(symbolId, svgContent, options.spriteFilename);
+
+  return `export default ${JSON.stringify({symbolId, svgContent})}`;
 }
+
+module.exports = loader;
