@@ -1,6 +1,6 @@
-# webpack-sprite-svg-loader
+# @nerdsandcompany/webpack-sprite-svg-loader
 
-[![npm version](https://img.shields.io/npm/v/webpack-sprite-svg-loader)](https://www.npmjs.com/package/webpack-sprite-svg-loader)
+[![npm version](https://img.shields.io/npm/v/@nerdsandcompany/webpack-sprite-svg-loader)](https://www.npmjs.com/package/@nerdsandcompany/webpack-sprite-svg-loader)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/nerds-and-company/webpack-sprite-svg-loader/blob/master/LICENSE)
 
 Webpack loader for generating external svg symbol sprite files, inspired by https://github.com/vadymshymko/svg-sprite-generation-loader
@@ -20,7 +20,7 @@ Webpack loader for generating external svg symbol sprite files, inspired by http
 
 ## How it works?
 
-webpack-sprite-svg-loader is a webpack-loader that takes a multiple svg files, transform (parse and return as an object with `symbolId` and `attributes` keys) and put them back in one file.
+@nerdsandcompany/webpack-sprite-svg-loader is a webpack-loader that takes a multiple svg files, transform (parse and return as an object with `symbolId` and `attributes` keys) and put them back in one file.
 
 Input multiple svg files, e.g:
 
@@ -64,13 +64,13 @@ You can refer to this file to display all your icons using [SVG stacking techniq
 ## Installation:
 
 ```bash
-npm install webpack-sprite-svg-loader --save-dev
+npm install @nerdsandcompany/webpack-sprite-svg-loader --save-dev
 ```
 
 **yarn**
 
 ```bash
-yarn add webpack-sprite-svg-loader --dev
+yarn add @nerdsandcompany/webpack-sprite-svg-loader --dev
 ```
 
 ## Usage:
@@ -81,7 +81,7 @@ In your webpack config:
 const path = require('path');
 const glob = require('glob');
 
-const WebpackSpriteSvgLoaderState = require('webpack-sprite-svg-loader/src/plugin.js');
+const WebpackSpriteSvgLoaderState = require('@nerdsandcompany/webpack-sprite-svg-loader/src/plugin.js');
 
 module.exports = {
   entry: {
@@ -91,7 +91,7 @@ module.exports = {
     rules: [
       {
         test: /\.svg$/,
-        use: 'webpack-sprite-svg-loader',
+        use: '@nerdsandcompany/webpack-sprite-svg-loader',
         options: {
           spriteFilename: 'assets/img/sprite.svg'
         }
