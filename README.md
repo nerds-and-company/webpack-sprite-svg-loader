@@ -1,6 +1,6 @@
 # webpack-sprite-svg-loader
 
-[![npm version](https://img.shields.io/npm/v/webpack-sprite-svg-loader)](https://www.npmjs.com/package/webpack-sprite-svg-loader)
+[![npm version](https://img.shields.io/npm/v/@nerdsandcompany/webpack-sprite-svg-loader)](https://www.npmjs.com/package/@nerdsandcompany/webpack-sprite-svg-loader)
 [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/nerds-and-company/webpack-sprite-svg-loader/blob/master/LICENSE)
 
 Webpack loader for generating external svg symbol sprite files, inspired by https://github.com/vadymshymko/svg-sprite-generation-loader
