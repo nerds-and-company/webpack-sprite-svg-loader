@@ -1,0 +1,5 @@
+node_modules
+
+# Ignore below since we hardcoded the dependency versions :)
+package-lock.json
+yarn.lock
