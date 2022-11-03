@@ -6,7 +6,7 @@
   "jest": {
     "testEnvironment": "node"
   },
-  "version": "0.0.2",
+  "version": "0.0.3",
   "main": "src/loader.js",
   "license": "MIT",
   "devDependencies": {
@@ -18,7 +18,8 @@
     "webpack": "5.74.0"
   },
   "dependencies": {
-    "loader-utils": "^3.2.0"
+    "loader-utils": "^3.2.0",
+    "svgo": "^3.0.0"
   },
   "description": "[![npm version](https://img.shields.io/npm/v/webpack-sprite-svg-loader)](https://www.npmjs.com/package/webpack-sprite-svg-loader) [![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/nerds-and-company/webpack-sprite-svg-loader/blob/master/LICENSE)",
   "directories": {

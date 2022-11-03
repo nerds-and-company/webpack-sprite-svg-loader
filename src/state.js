@@ -17,21 +17,8 @@ class WebpackSpriteSvgLoaderState {
   }
 
   transformSvg(svgContent) {
-    const [_, parsedAttributes, content] = svgContent.match(/<svg(.*?)>(.*?)<\/svg>/s);
-
-    const attributes = parsedAttributes.split(' ').reduce((result, attribute) => {
-      if (attribute.startsWith('xmlns')) {
-        return result;
-      }
-
-      result.push(attribute);
-      return result;
-    }, []).join(' ');
-
-    return {
-      attributes,
-      content,
-    };
+    const [_, attributes, content] = svgContent.match(/<svg(.*?)>(.*?)<\/svg>/s);
+    return { attributes, content };
   }
 
   svgsToContent(svgs) {
