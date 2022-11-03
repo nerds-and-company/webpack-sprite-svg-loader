@@ -35,7 +35,7 @@ class WebpackSpriteSvgLoaderState {
   }
 
   svgsToContent(svgs) {
-    return `${Object.keys(svgs).reduce(
+    return `${Object.keys(svgs).sort().reduce(
       (result, symbolId) =>
         `${result}<symbol id="${symbolId}"${svgs[symbolId].attributes}>${svgs[symbolId].content}</symbol>`,
       '<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">'
